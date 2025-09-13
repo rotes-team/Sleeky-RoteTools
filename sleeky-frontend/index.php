@@ -84,7 +84,7 @@
 						</div>
 
 						<div class="card-body px-5 pb-5">
-							<h2 class="text-uppercase text-center">Your shortened link</h2>
+							<h2 class="text-uppercase text-center"><?php yourls_e('Your shortened link') ?></h2>
 							
 							<div class="row justify-content-center">
 								<div class="col-10">
@@ -92,7 +92,8 @@
 										<input type="text" class="form-control text-uppercase" value="<?php echo $shorturl; ?>" required>
 										<button class="btn btn-primary text-uppercase py-2 px-5 mt-2 mt-md-0" type="submit" id="copy-button" data-shorturl="<?php echo $shorturl; ?>">Copy</button>
 									</div>
-									<span class="info">View info &amp; stats at <a href="<?php echo $shorturl; ?>+"><?php echo $url; ?>+</a></span>
+									NUR WENN ANGEMELDET
+									<span class="info"><?php yourls_e('View info &amp; stats at ') ?><a href="<?php echo $shorturl; ?>+"><?php echo $url; ?>+</a></span>
 								</div>
 							</div>
 						</div>
@@ -106,7 +107,7 @@
 							<?php if ( isset( $_REQUEST['url'] ) && $_REQUEST['url'] != 'http://' ): ?>
 								<?php if (strpos($message,'added') === false): ?>
 									<div class="alert alert-danger alert-dismissible fade show" role="alert">
-										<span>Oh no, <?php echo $message; ?>!</span>
+										<span><?php yourls_e('Oh no something went wrong') ?><br><?php echo $message; ?>!</span>
 										<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 									</div>	    
 								<?php endif; ?>
@@ -114,18 +115,18 @@
 
 							<form id="shortenlink" method="post" action="">
 								<div class="input-group input-group-block mt-4 mb-3">
-									<input type="url" name="url" id="url" class="form-control text-uppercase" placeholder="PASTE URL, SHORTEN &amp; SHARE" aria-label="PASTE URL, SHORTEN &amp; SHARE" aria-describedby="shorten-button" required>
-									<input class="btn btn-primary text-uppercase py-2 px-4 mt-2 mt-md-0" type="submit" id="shorten-button" value="Shorten" />
+									<input type="url" name="url" id="url" class="form-control text-uppercase" placeholder="<?php yourls_e('PASTE URL, SHORTEN &amp; SHARE'); ?>" aria-label="PASTE URL, SHORTEN &amp; SHARE" aria-describedby="shorten-button" required>
+									<input class="btn btn-primary text-uppercase py-2 px-4 mt-2 mt-md-0" type="submit" id="shorten-button" value="<?php yourls_e('Shorten'); ?>" />
 								</div>
 								<?php if (enableCustomURL): ?>
 									<a class="btn btn-sm btn-white text-black-50 text-uppercase" data-bs-toggle="collapse" href="#customise-link" role="button" aria-expanded="false" aria-controls="customise-link">
-										<img src="<?php echo YOURLS_SITE ?>/frontend/assets/svg/custom-url.svg" alt="Options"> Customise Link
+										<img src="<?php echo YOURLS_SITE ?>/frontend/assets/svg/custom-url.svg" alt="Options"> <?php yourls_e('Customise Link'); ?>
 									</a>
 									<div class="collapse" id="customise-link">
 										<div class="mt-2 card card-body">
 											<div class="d-flex  align-items-center">
 												<span class="me-2"><?php echo preg_replace("(^https?://)", "", YOURLS_SITE ); ?>/</span>
-												<input type="text" name="keyword" class="form-control form-control-sm text-uppercase" placeholder="CUSTOM URL" aria-label="CUSTOM URL">
+												<input type="text" name="keyword" class="form-control form-control-sm text-uppercase" placeholder="<?php yourls_e('CUSTOM URL'); ?>" aria-label="CUSTOM URL">
 											</div>
 										</div>
 									</div>
