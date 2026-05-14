@@ -95,8 +95,10 @@
 										<input type="text" class="form-control text-uppercase" value="<?php echo $shorturl; ?>" required>
 										<button class="btn btn-primary text-uppercase py-2 px-5 mt-2 mt-md-0" type="submit" id="copy-button" data-shorturl="<?php echo $shorturl; ?>">Copy</button>
 									</div>
+									<!--
 									NUR WENN ANGEMELDET
 									<span class="info"><?php yourls_e('View info &amp; stats at ') ?><a href="<?php echo $shorturl; ?>+"><?php echo $url; ?>+</a></span>
+									-->
 								</div>
 							</div>
 						</div>
