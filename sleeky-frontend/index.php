@@ -166,11 +166,7 @@
 								</div>
 								<?php if (enableCustomURL): ?>
 									<a class="btn btn-sm btn-white text-black-50 text-uppercase" data-bs-toggle="collapse" href="#customise-link" role="button" aria-expanded="false" aria-controls="customise-link">
-<<<<<<< HEAD
-										<img src="<?php echo YOURLS_SITE ?>/frontend/assets/svg/custom-url.svg" alt="Options"> Customize Link
-=======
 										<img src="<?php echo YOURLS_SITE ?>/frontend/assets/svg/custom-url.svg" alt="Options"> <?php yourls_e('Customise Link'); ?>
->>>>>>> da283dd (replace all prints with yourls_e() Function to make translation available)
 									</a>
 									<div class="collapse" id="customise-link">
 										<div class="mt-2 card card-body">
