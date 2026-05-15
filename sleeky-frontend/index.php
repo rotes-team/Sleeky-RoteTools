@@ -95,10 +95,31 @@
 										<input type="text" class="form-control text-uppercase" value="<?php echo $shorturl; ?>" required>
 										<button class="btn btn-primary text-uppercase py-2 px-5 mt-2 mt-md-0" type="submit" id="copy-button" data-shorturl="<?php echo $shorturl; ?>">Copy</button>
 									</div>
-									<!--
-									NUR WENN ANGEMELDET
-									<span class="info"><?php yourls_e('View info &amp; stats at ') ?><a href="<?php echo $shorturl; ?>+"><?php echo $url; ?>+</a></span>
-									-->
+									<?php
+										try{
+											if (!filter_var($shorturl, FILTER_VALIDATE_URL)) {
+												throw new InvalidArgumentException('Leider ist ein Fehler mit der URL aufgetreten');
+											}
+											
+											$data = urlencode($shorturl);
+											$url = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data={$data}";
+											$image = file_get_contents($url);
+	
+											if ($image === false) {
+												throw new RuntimeException('QR-Code konnte nicht geladen werden.');
+											}
+	
+											$base64 = base64_encode($image);
+											echo '<img src="data:image/png;base64,' . $base64 . '" alt="QR-Code">';
+										
+										}catch (Exception $e){
+											echo '<div class="error">';
+											echo htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8');
+											echo '</div>';
+
+											error_log($e->getMessage());
+										}
+									?>
 								</div>
 							</div>
 						</div>
